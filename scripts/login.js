@@ -74,6 +74,10 @@ document.getElementById("doctor-form").addEventListener("submit", (e) => {
       if (data) {
         console.log(data);
         localStorage.setItem("doc-detail", JSON.stringify(data));
+        if (data) {
+          alert("login successful");
+          window.location.href = "../index.html";
+        }
       }
     })
     .catch((err) => console.log(err));
