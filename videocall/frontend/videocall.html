@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MEDPREP | MEETING Room</title>
+    <link rel="stylesheet" href="./styles/videocall.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo"><a href="../../index.html">MEDPREP</a></div>
+        <ul class="menu">
+          <li><a href="../../view_appointment.html">View Appointments</a></li>
+          <li><a href="../../book_appointment.html">Book Appointments</a></li>
+          <li class="submenu">
+            <a href="#"><i class="fa-solid fa-circle-user fa-lg"></i></a>
+            <ul>
+              <li><a href="../../login.html">Login</a></li>
+              <li><a href="../../signup.html">Signup</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div id="videoContainer"></div>
+
+    <div id="controls">
+      <p id="hangup" class="control-icon">
+        <a href="./index.html">
+          <img
+            width="50px"
+            class="icon"
+            src="https://icons.veryicon.com/png/o/miscellaneous/cloud-call-center/hang-up.png"
+            alt=""
+          />
+        </a>
+      </p>
+      <p id="toggleVideo" class="control-icon">
+        <img
+          width="50px"
+          class="icon"
+          src="./images/video-icon-1-removebg-preview.png"
+          style="border-radius: 50%"
+          alt=""
+        />
+      </p>
+      <p id="toggleAudio" class="control-icon">
+        <img class="icon" src="./images/download-removebg-preview.png" alt="" />
+      </p>
+    </div>
+
+    <footer>
+      <p>&copy; 2023 MEDPREP. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/peerjs@1.3.2/dist/peerjs.min.js"></script>
+    <script
+      src="https://cdn.socket.io/4.5.4/socket.io.min.js"
+      integrity="sha384-/KNQL8Nu5gCHLqwqfQjA689Hhoqgi2S84SNUxC3roTe4EhJ9AfLkp8QiQcU8AMzI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./scripts/videocall.js" type="module"></script>
+  </body>
+</html>
+<script
+  src="https://kit.fontawesome.com/e5a9c90922.js"
+  crossorigin="anonymous"
+></script>
