@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  padding: 10px 6%;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #333;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+}
+
+.menu li {
+  margin-left: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+}
+
+.submenu ul {
+  display: none;
+  position: absolute;
+  right: 50px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  list-style-type: none;
+  padding-right: 20px;
+}
+
+.submenu > ul > li {
+  padding: 10px;
+}
+
+.submenu:hover ul {
+  display: block;
+}
+
+.container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 70px auto;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.heading {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+#symptoms {
+  resize: vertical;
+}
+.form-btn {
+  padding: 10px 20px;
+  background-color: #f4735c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.form-btn:hover {
+  background-color: #e7433e;
+}
+
+.col-left {
+  flex-basis: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.col-right {
+  flex-basis: 100%;
+  padding: 20px;
+}
+
+#image-box {
+  text-align: center;
+  margin-top: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  mix-blend-mode: darken;
+}
+
+footer {
+  margin-top: auto;
+  background-color: #ddd;
+  padding: 20px;
+  text-align: center;
+}

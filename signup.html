@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MEDPREP | Signup Page</title>
+    <link rel="stylesheet" href="./styles/signup.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo"><a href="index.html">MEDPREP</a></div>
+        <ul class="menu">
+          <li><a href="view_appointment.html">View Appointments</a></li>
+          <li><a href="book_appointment.html">Book Appointments</a></li>
+          <li class="submenu">
+            <a href="#"><i class="fa-solid fa-circle-user fa-lg"></i></a>
+            <ul>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="signup.html">Signup</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="tabs">
+        <button class="tab" onclick="openForm(event, 'patientForm')">
+          Patient Registration
+        </button>
+        <button class="tab" onclick="openForm(event, 'doctorForm')">
+          Doctor Registration
+        </button>
+      </div>
+
+      <div id="patientForm" class="form-section">
+        <h2>Patient Registration</h2>
+        <form id="patientform">
+          <div class="form-group">
+            <label for="patientName">Name</label>
+            <input type="text" id="patientName" placeholder="Enter your name" />
+          </div>
+          <div class="form-group">
+            <label for="patientEmail">Email</label>
+            <input
+              type="email"
+              id="patientEmail"
+              placeholder="Enter your email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="patientPassword">Password</label>
+            <input
+              type="password"
+              id="patientPassword"
+              placeholder="Enter your password"
+            />
+          </div>
+          <div class="form-group">
+            <label for="patientGender">Gender</label>
+            <select id="patientGender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="patientAge">Age</label>
+            <input type="number" id="patientAge" placeholder="Enter your age" />
+          </div>
+          <button type="submit" class="register-button">Register</button>
+        </form>
+      </div>
+
+      <div id="doctorForm" class="form-section">
+        <h2>Doctor Registration</h2>
+        <form id="doctorform">
+          <div class="form-group">
+            <label for="doctorName">Name</label>
+            <input type="text" id="doctorName" placeholder="Enter your name" />
+          </div>
+          <div class="form-group">
+            <label for="doctorEmail">Email</label>
+            <input
+              type="email"
+              id="doctorEmail"
+              placeholder="Enter your email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="doctorPassword">Password</label>
+            <input
+              type="password"
+              id="doctorPassword"
+              placeholder="Enter your password"
+            />
+          </div>
+          <div class="form-group">
+            <label for="doctorGender">Gender</label>
+            <select id="doctorGender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="doctorAge">Age</label>
+            <input type="number" id="doctorAge" placeholder="Enter your age" />
+          </div>
+          <div class="form-group">
+            <label for="doctorExperience">Experience</label>
+            <input
+              type="number"
+              id="doctorExperience"
+              placeholder="Enter your experience"
+            />
+          </div>
+          <div class="form-group">
+            <label for="doctorSpecialized">Specialized</label>
+            <input
+              type="text"
+              id="doctorSpecialized"
+              placeholder="Enter your specialization"
+            />
+          </div>
+          <button type="submit" class="register-button">Register</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2023 MEDPREP. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
+
+<script
+  src="https://kit.fontawesome.com/e5a9c90922.js"
+  crossorigin="anonymous"
+></script>
+
+<script src="./scripts/signup.js"></script>

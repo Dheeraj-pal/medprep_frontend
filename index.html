@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>MEDPREP | Home Page</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo"><a href="index.html">MEDPREP</a></div>
+        <ul class="menu">
+          <li><a href="view_appointment.html">View Appointments</a></li>
+          <li><a href="book_appointment.html">Book Appointments</a></li>
+          <li class="submenu">
+            <a href="#"><i class="fa-solid fa-circle-user fa-lg"></i></a>
+            <ul>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="signup.html">Signup</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <img src="./images/4990224.jpg" alt="Booking Image" />
+        <div class="hero-sub-section">
+          <h1>Welcome to our Medical Booking App</h1>
+          <button class="booking-button">Book Now</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2023 MEDPREP. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
+<script
+  src="https://kit.fontawesome.com/e5a9c90922.js"
+  crossorigin="anonymous"
+></script>
+
+<script>
+  document.querySelector(".booking-button").addEventListener("click", () => {
+    window.location.href = "book_appointment.html";
+  });
+</script>

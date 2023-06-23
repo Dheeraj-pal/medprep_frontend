@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/view_appointment.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo"><a href="index.html">MEDPREP</a></div>
+        <ul class="menu">
+          <li><a href="view_appointment.html">View Appointments</a></li>
+          <li><a href="book_appointment.html">Book Appointments</a></li>
+          <li class="submenu">
+            <a href="#"><i class="fa-solid fa-circle-user fa-lg"></i></a>
+            <ul>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="signup.html">Signup</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div id="mainsection">
+      <h1>View Appointments</h1>
+
+      <div class="table-container">
+        <table class="appointments-table">
+          <thead>
+            <tr>
+              <th>Doctor Name</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Room ID</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="appointments-body">
+            <!-- Appointments data will be dynamically added here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2023 MEDPREP. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
+
+<script src="./scripts/view_appointment.js"></script>
+
+<script
+  src="https://kit.fontawesome.com/e5a9c90922.js"
+  crossorigin="anonymous"
+></script>

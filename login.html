@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MEDPREP | Login Page</title>
+    <link rel="stylesheet" href="./styles/login.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo"><a href="index.html">MEDPREP</a></div>
+        <ul class="menu">
+          <li><a href="view_appointment.html">View Appointments</a></li>
+          <li><a href="book_appointment.html">Book Appointments</a></li>
+          <li class="submenu">
+            <a href="#"><i class="fa-solid fa-circle-user fa-lg"></i></a>
+            <ul>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="signup.html">Signup</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="tabs">
+        <button class="tab" id="patient-tab" onclick="changeTab('patient')">
+          Patient Login
+        </button>
+        <button class="tab" id="doctor-tab" onclick="changeTab('doctor')">
+          Doctor Login
+        </button>
+      </div>
+
+      <div class="forms">
+        <form id="patient-form" class="form active">
+          <h2>Patient Login</h2>
+          <input type="email" id="patientEmail" placeholder="Email" required />
+          <input
+            type="password"
+            id="patientPassword"
+            placeholder="Password"
+            required
+          />
+          <button type="submit">Login</button>
+        </form>
+
+        <form id="doctor-form" class="form">
+          <h2>Doctor Login</h2>
+          <input type="email" id="docEmail" placeholder="Email" required />
+          <input
+            type="password"
+            id="docPassword"
+            placeholder="Password"
+            required
+          />
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2023 MEDPREP. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
+
+<script
+  src="https://kit.fontawesome.com/e5a9c90922.js"
+  crossorigin="anonymous"
+></script>
+
+<script src="./scripts/login.js"></script>
