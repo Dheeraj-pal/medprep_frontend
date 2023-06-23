@@ -3,7 +3,7 @@ const selectDoctor = document.getElementById("doctor");
 let patient = JSON.parse(localStorage.getItem("user-detail")) || null;
 
 // Fetch all doctors from the server
-fetch("https://medprepbackend-production.up.railway.app//doctor")
+fetch("https://medprepbackend-production.up.railway.app/doctor")
   .then((res) => res.json())
   .then((data) => {
     populateDoctorOptions(data);
