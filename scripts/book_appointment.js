@@ -120,7 +120,7 @@ document.getElementById("form").addEventListener("click", (e) => {
 
       console.log(JSON.stringify(payload));
 
-      fetch("https://medprepbackend-production.up.railway.app/schedule", {
+      fetch("https://medprepbackend-production.up.railway.app/meeting/schedule", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
