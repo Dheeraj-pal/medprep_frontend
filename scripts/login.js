@@ -80,5 +80,8 @@ document.getElementById("doctor-form").addEventListener("submit", (e) => {
         }
       }
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      console.log(err);
+      alert("wrong credentials");
+    });
 });
