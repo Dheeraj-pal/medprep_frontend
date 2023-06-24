@@ -87,7 +87,6 @@ nav {
   margin-bottom: 50px;
 }
 
-
 .table-container {
   overflow-x: auto;
   margin-top: 20px;
@@ -130,7 +129,7 @@ nav {
 }
 
 .appointments-table .button-container button:hover {
-  background-color: #E7433E;
+  background-color: #e7433e;
 }
 
 @media screen and (max-width: 600px) {
@@ -149,4 +148,68 @@ footer {
   background-color: #ddd;
   padding: 20px;
   text-align: center;
+}
+
+#tempDandT {
+  display: none;
+  height: 150px;
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.167);
+  margin: auto;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  padding: 80px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+#tempDandT > input {
+  width: 90%;
+  height: 40px;
+  padding: 10px;
+  font-size: 18px;
+  margin: auto;
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  border-radius: 5px;
+}
+
+#tempDandT > div{
+  position: absolute;
+  top: 70%;
+  right: 6%;
+  margin: auto;
+}
+
+#tempDandT > div > button:first-child {
+  padding: 8px 12px;
+  background-color: dodgerblue;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#tempDandT > div > button:last-child {
+  padding: 8px 12px;
+  background-color: red;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#tempDandT > div > button:first-child:hover {
+  background-color: rgb(20, 97, 174);
+}
+
+#tempDandT > div > button:last-child:hover {
+  background-color: rgb(139, 0, 0);
 }

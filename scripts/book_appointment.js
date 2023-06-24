@@ -135,7 +135,7 @@ document.getElementById("form").addEventListener("click", (e) => {
         .then((data) => {
           if (data) {
             console.log(data);
-            alert("Appointment Bookend Successfully");
+            alert("Appointment Booked Successfully");
           }
         })
         .catch((err) => alert(err));
