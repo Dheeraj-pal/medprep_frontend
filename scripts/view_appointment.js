@@ -1,5 +1,5 @@
 let patient = JSON.parse(localStorage.getItem("user-detail")) || [];
-let token = patient.token;
+let doctor = JSON.parse(localStorage.getItem("doc-detail")) || [];
 
 // Function to generate the HTML for each appointment row
 function generateAppointmentRow(appointment) {
@@ -22,27 +22,30 @@ function generateAppointmentRow(appointment) {
   `;
 }
 
-fetch("https://medprepbackend-production.up.railway.app/meeting", {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-    authorization: `bearer ${token}`,
-  },
-})
-  .then((res) => res.json())
-  .then((datas) => {
-    console.log(datas);
+if (patient.message == "Login Successful") {
+  let token = patient.token;
 
-    const appointmentsBody = document.getElementById("appointments-body");
-
-    datas.forEach((appointment) => {
-      const rowHTML = generateAppointmentRow(appointment);
-      appointmentsBody.innerHTML += rowHTML;
-    });
+  fetch("https://medprepbackend-production.up.railway.app/meeting", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `bearer ${token}`,
+    },
   })
-  .catch((err) => alert(err));
+    .then((res) => res.json())
+    .then((datas) => {
+      console.log(datas);
 
-function handleClick() {
-  window.location.href = "./videocall/frontend/index.html";
+      const appointmentsBody = document.getElementById("appointments-body");
+
+      datas.forEach((appointment) => {
+        const rowHTML = generateAppointmentRow(appointment);
+        appointmentsBody.innerHTML += rowHTML;
+      });
+    })
+    .catch((err) => alert(err));
+
+  function handleClick() {
+    window.location.href = "./videocall/frontend/index.html";
+  }
 }
-
