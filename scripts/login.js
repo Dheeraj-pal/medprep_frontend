@@ -80,7 +80,6 @@ document.getElementById("doctor-form").addEventListener("submit", (e) => {
     .then((res) => res.json())
     .then((data) => {
       if (data) {
-        console.log(data);
         localStorage.setItem("doc-detail", JSON.stringify(data));
         if (data.message == "Login Successful") {
           localStorage.removeItem("user-detail");

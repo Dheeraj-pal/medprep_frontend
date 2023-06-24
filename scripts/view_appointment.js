@@ -27,20 +27,29 @@ if (
   doctor.message == "Login Successful"
 ) {
   if (patient.token) {
-    var token = patient.token;
+    var patienttoken = patient.token;
     var patientId = patient.user._id;
+    var hasParentId = Boolean(patientId);
+    var hasPToken = Boolean(patienttoken);
+  } else if (doctor.token) {
+    var doctoken = doctor.token;
+    var doctorId = doctor.doctor._id;
+    var hasDocId = Boolean(doctorId);
+    var hasDToken = Boolean(doctoken);
   }
 
-  fetch(
-    `https://medprepbackend-production.up.railway.app/meeting/${patientId}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `bearer ${token}`,
-      },
-    }
-  )
+  let idParam = hasParentId ? patientId : hasDocId ? doctorId : "";
+  let isToken = hasPToken ? patienttoken : hasDToken ? doctoken : "";
+  console.log(idParam);
+  console.log(isToken);
+
+  fetch(`https://medprepbackend-production.up.railway.app/meeting/${idParam}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `bearer ${isToken}`,
+    },
+  })
     .then((res) => res.json())
     .then((datas) => {
       console.log(datas);
