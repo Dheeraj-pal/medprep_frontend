@@ -77,7 +77,7 @@ selectDoctor.addEventListener("change", (e) => {
 document.getElementById("form").addEventListener("click", (e) => {
   e.preventDefault();
 
-  if (!patient) {
+  if (!patient.Error) {
     alert("Please Login First");
   } else {
     let token = patient.token;
