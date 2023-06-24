@@ -22,30 +22,66 @@ function generateAppointmentRow(appointment) {
   `;
 }
 
-if (patient.message == "Login Successful") {
-  let token = patient.token;
+if (
+  patient.message == "Login Successful" ||
+  doctor.message == "Login Successful"
+) {
+  if (patient.token) {
+    let token = patient.token;
+    let patientId = patient.user._id;
 
-  fetch("https://medprepbackend-production.up.railway.app/meeting", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `bearer ${token}`,
-    },
-  })
-    .then((res) => res.json())
-    .then((datas) => {
-      console.log(datas);
+    fetch(
+      `https://medprepbackend-production.up.railway.app/meeting/${patientId}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `bearer ${token}`,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((datas) => {
+        console.log(datas);
 
-      const appointmentsBody = document.getElementById("appointments-body");
+        const appointmentsBody = document.getElementById("appointments-body");
 
-      datas.forEach((appointment) => {
-        const rowHTML = generateAppointmentRow(appointment);
-        appointmentsBody.innerHTML += rowHTML;
-      });
+        datas.forEach((appointment) => {
+          const rowHTML = generateAppointmentRow(appointment);
+          appointmentsBody.innerHTML += rowHTML;
+        });
+      })
+      .catch((err) => alert(err));
+
+    function handleClick() {
+      window.location.href = "./videocall/frontend/index.html";
+    }
+  } else if (doctor.token) {
+    let token = doctor.token;
+    let docId = doctor.doctor._id;
+
+    fetch(`https://medprepbackend-production.up.railway.app/meeting/${docId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `bearer ${token}`,
+      },
     })
-    .catch((err) => alert(err));
+      .then((res) => res.json())
+      .then((datas) => {
+        console.log(datas);
 
-  function handleClick() {
-    window.location.href = "./videocall/frontend/index.html";
+        const appointmentsBody = document.getElementById("appointments-body");
+
+        datas.forEach((appointment) => {
+          const rowHTML = generateAppointmentRow(appointment);
+          appointmentsBody.innerHTML += rowHTML;
+        });
+      })
+      .catch((err) => alert(err));
+
+    function handleClick() {
+      window.location.href = "./videocall/frontend/index.html";
+    }
   }
 }
