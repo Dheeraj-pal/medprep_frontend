@@ -42,18 +42,22 @@ document.getElementById("patientform").addEventListener("submit", async (e) => {
 
   console.log(patientPayload);
 
-  await fetch("https://medprepbackend-production.up.railway.app/user/register", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(patientPayload),
-  })
+  await fetch(
+    "https://medprepbackend-production.up.railway.app/user/register",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(patientPayload),
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
       if (data) {
         console.log("Patient Registered Successfully", data);
         alert("Patient Registered Successfully");
+        window.location.href = "./login.html";
       }
     })
     .catch((error) => {
@@ -85,18 +89,22 @@ document.getElementById("doctorform").addEventListener("submit", async (e) => {
 
   console.log(docPayload);
 
-  await fetch("https://medprepbackend-production.up.railway.app/doctor/register", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(docPayload),
-  })
+  await fetch(
+    "https://medprepbackend-production.up.railway.app/doctor/register",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(docPayload),
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
       if (data) {
         console.log("Doctor Registered Successfully", data);
         alert("Doctor Registered Successfully");
+        window.location.href = "./login.html";
       }
     })
     .catch((error) => {
