@@ -45,6 +45,7 @@ document.getElementById("patient-form").addEventListener("submit", (e) => {
       if (data) {
         console.log(data);
         localStorage.setItem("user-detail", JSON.stringify(data));
+        window.location.href = "./index.html";
       }
     })
     .catch((err) => console.log(err));
@@ -76,7 +77,7 @@ document.getElementById("doctor-form").addEventListener("submit", (e) => {
         localStorage.setItem("doc-detail", JSON.stringify(data));
         if (data) {
           alert("login successful");
-          window.location.href = "../index.html";
+          window.location.href = "./index.html";
         }
       }
     })
