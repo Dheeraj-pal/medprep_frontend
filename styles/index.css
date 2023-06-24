@@ -55,6 +55,31 @@ nav {
   color: #333;
 }
 
+#logOut {
+  cursor: pointer;
+}
+
+#logOut:hover {
+  font-weight: 600;
+  color: #e7433e;
+}
+
+#userName {
+  margin-left: 12px;
+}
+
+.submenu a:hover {
+  color: #e7433e;
+}
+
+.menu li a:hover {
+  color: #e7433e;
+}
+
+.logo a:hover {
+  color: #e7433e;
+}
+
 .submenu ul {
   display: none;
   position: absolute;
@@ -112,7 +137,7 @@ nav {
 }
 
 .booking-button:hover {
-  background-color: #E7433E;
+  background-color: #e7433e;
 }
 
 footer {

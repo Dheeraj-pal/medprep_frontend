@@ -55,6 +55,31 @@ nav {
   color: #333;
 }
 
+#logOut {
+  cursor: pointer;
+}
+
+#logOut:hover {
+  font-weight: 600;
+  color: #e7433e;
+}
+
+#userName {
+  margin-left: 12px;
+}
+
+.submenu a:hover {
+  color: #e7433e;
+}
+
+.menu li a:hover {
+  color: #e7433e;
+}
+
+.logo a:hover {
+  color: #e7433e;
+}
+
 .submenu ul {
   display: none;
   position: absolute;
@@ -166,7 +191,6 @@ footer {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-
 #tempDandT > input {
   width: 90%;
   height: 40px;
@@ -179,7 +203,7 @@ footer {
   border-radius: 5px;
 }
 
-#tempDandT > div{
+#tempDandT > div {
   position: absolute;
   top: 70%;
   right: 6%;

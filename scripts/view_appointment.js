@@ -1,6 +1,6 @@
 // Get user details from localStorage
-const patient = JSON.parse(localStorage.getItem("user-detail")) || [];
-const doctor = JSON.parse(localStorage.getItem("doc-detail")) || [];
+patient = JSON.parse(localStorage.getItem("user-detail")) || null;
+doctor = JSON.parse(localStorage.getItem("doc-detail")) || null;
 
 // Function to generate the HTML for each appointment row
 function generateAppointmentRow(appointment) {
@@ -27,39 +27,43 @@ function generateAppointmentRow(appointment) {
 
 // Function to fetch appointments and populate the table
 async function fetchAppointments() {
-  const token = patient.token || doctor.token;
-  const idParam = patient.user?._id || doctor.doctor?._id;
+  if (patient || doctor) {
+    const token = patient.token || doctor.token;
+    const idParam = patient.user?._id || doctor.doctor?._id;
 
-  try {
-    const response = await fetch(
-      `https://medprepbackend-production.up.railway.app/meeting/${idParam}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `bearer ${token}`,
-        },
+    try {
+      const response = await fetch(
+        `https://medprepbackend-production.up.railway.app/meeting/${idParam}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `bearer ${token}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch appointments");
       }
-    );
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch appointments");
+      const datas = await response.json();
+
+      if (datas.length <= 0) {
+        alert("No Appointment Found");
+      }
+      const appointmentsBody = document.getElementById("appointments-body");
+
+      datas.forEach((appointment) => {
+        const rowHTML = generateAppointmentRow(appointment);
+        appointmentsBody.innerHTML += rowHTML;
+      });
+    } catch (error) {
+      console.error(error);
+      alert("Failed to fetch appointments");
     }
-
-    const datas = await response.json();
-
-    if (datas.length <= 0) {
-      alert("No Appointment Found");
-    }
-    const appointmentsBody = document.getElementById("appointments-body");
-
-    datas.forEach((appointment) => {
-      const rowHTML = generateAppointmentRow(appointment);
-      appointmentsBody.innerHTML += rowHTML;
-    });
-  } catch (error) {
-    console.error(error);
-    alert("Failed to fetch appointments");
+  } else {
+    alert("Please Login First");
   }
 }
 
