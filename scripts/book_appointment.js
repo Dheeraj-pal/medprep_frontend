@@ -1,6 +1,9 @@
 const selectSpecialization = document.getElementById("Specialization");
 const selectDoctor = document.getElementById("doctor");
 let patient = JSON.parse(localStorage.getItem("user-detail")) || null;
+let docRole = doctor?.doctor.role;
+let patRole = patient?.user.role;
+let role = patRole || docRole;
 
 // Fetch all doctors from the server
 fetch("https://medprepbackend-production.up.railway.app/doctor")
@@ -77,7 +80,7 @@ selectDoctor.addEventListener("change", (e) => {
 document.getElementById("form").addEventListener("click", (e) => {
   e.preventDefault();
 
-  if (!patient.message == "Login Successful") {
+  if (!patient?.message == "Login Successful") {
     alert("Please Login First");
   } else {
     let token = patient.token;
@@ -116,6 +119,7 @@ document.getElementById("form").addEventListener("click", (e) => {
         specialization,
         symptoms,
         roomId,
+        role
       };
 
       console.log(JSON.stringify(payload));

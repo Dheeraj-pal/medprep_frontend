@@ -2,12 +2,13 @@ let patient = JSON.parse(localStorage.getItem("user-detail")) || null;
 let doctor = JSON.parse(localStorage.getItem("doc-detail")) || null;
 
 let user = patient || doctor;
+let Name = user?.user?.name || user?.doctor?.name;
 if (user) {
   let menu = document.getElementById("menu");
 
   let h2 = document.createElement("h4");
   h2.setAttribute("id", "userName");
-  h2.innerText = user.user.name;
+  h2.innerText = Name;
 
   let li = document.createElement("li");
   li.setAttribute("id", "logOut");

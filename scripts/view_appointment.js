@@ -1,6 +1,12 @@
 // Get user details from localStorage
 patient = JSON.parse(localStorage.getItem("user-detail")) || null;
 doctor = JSON.parse(localStorage.getItem("doc-detail")) || null;
+let docRole = doctor?.doctor.role;
+let patRole = patient?.user.role;
+
+let role = patRole || docRole;
+
+console.log(role);
 
 // Function to generate the HTML for each appointment row
 function generateAppointmentRow(appointment) {
@@ -28,8 +34,8 @@ function generateAppointmentRow(appointment) {
 // Function to fetch appointments and populate the table
 async function fetchAppointments() {
   if (patient || doctor) {
-    const token = patient.token || doctor.token;
-    const idParam = patient.user?._id || doctor.doctor?._id;
+    const token = patient?.token || doctor?.token;
+    const idParam = patient?.user?._id || doctor?.doctor?._id;
 
     try {
       const response = await fetch(
@@ -85,6 +91,7 @@ async function cancelMeet(id) {
             "Content-Type": "application/json",
             authorization: `bearer ${token}`,
           },
+          body: JSON.stringify({ role }),
         }
       );
 
@@ -138,7 +145,7 @@ async function reschedule(id) {
               "Content-Type": "application/json",
               authorization: `bearer ${token}`,
             },
-            body: JSON.stringify({ dateAndTime: updatedDate }),
+            body: JSON.stringify({ dateAndTime: updatedDate, role }),
           }
         );
 
@@ -169,3 +176,25 @@ function handleClick() {
 
 // Fetch appointments and populate the table
 fetchAppointments();
+
+// Show the preloader
+function showPreloader() {
+  var preloader = document.querySelector(".preloader");
+  preloader.style.display = "flex";
+}
+
+// Hide the preloader
+function hidePreloader() {
+  var preloader = document.querySelector(".preloader");
+  preloader.style.display = "none";
+}
+
+// Add an event listener to show the preloader when the page starts loading
+window.addEventListener("load", function () {
+  showPreloader();
+});
+
+// Add an event listener to hide the preloader when the page finishes loading
+window.addEventListener("DOMContentLoaded", function () {
+  hidePreloader();
+});
